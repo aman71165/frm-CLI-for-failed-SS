@@ -25,13 +25,11 @@ public class FrontEndLoginClass {
 
 	private	By loginButton= By.id("cred_sign_in_button");
 
-	private	By profileImage= By.xpath("//img[@alt='Default Profile Image']");
-
 
 	public FrontEndLoginClass(WebDriver driver) {
 		this.driver = driver;
 			this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));  
-		//prop = new Properties();
+		
 	}
 
 

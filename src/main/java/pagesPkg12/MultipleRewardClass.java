@@ -92,9 +92,7 @@ public class MultipleRewardClass {
 
 
 	public void clickRewardnameField_parameterized(String rewardName){
-	//	wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-bar-spinner")));
-		
-		wait.until(ExpectedConditions.presenceOfElementLocated(rewardnameField));
+			wait.until(ExpectedConditions.presenceOfElementLocated(rewardnameField));
 		driver.findElement(rewardnameField).sendKeys(rewardName);
 	}
 

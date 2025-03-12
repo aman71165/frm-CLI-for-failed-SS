@@ -16,7 +16,6 @@ public class HometoAdminPanelClass {
 	WebDriverWait wait;
 	JavascriptExecutor js;
 
-	private By profileImage = By.xpath("//img[@alt='Default Profile Image']");
 
 	private By adminPanelLink = By.xpath("//a[@class='ng-binding ng-scope ng-isolate-scope']");
 
@@ -51,8 +50,6 @@ public class HometoAdminPanelClass {
 
 	}
 
-
-
 	
 	public void moveToAdminPanel() throws InterruptedException {
 
@@ -80,7 +77,5 @@ public class HometoAdminPanelClass {
 		driver.findElement(frontEndyesLogoutButton).click();
 	}
 	
-
-
 	
 }
