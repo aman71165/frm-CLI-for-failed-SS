@@ -59,6 +59,14 @@ public class ObSDmultiRewardClass {
 		assert HomeAdminPanel.isMySummaryDisplayed();
 		System.out.println("This is " + driver.getTitle());
 		
+		HomeAdminPanel.clickFrontEndLogoutLink();
+		Thread.sleep(200);
+
+		HomeAdminPanel.clickYesFrontEndLogoutButton();
+		Thread.sleep(500);
+	
+		driver.close();
+		
 		Assert.assertTrue(driver.getTitle().contains("123456"));	
 	}
 

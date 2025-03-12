@@ -20,6 +20,7 @@ public class BrowserSetupClass {
 	        if (driver == null) {
 	            ChromeOptions options = new ChromeOptions();
 	            options.addArguments("--remote-allow-origins=*");
+	            options.addArguments("--headless");
 	            
 	            WebDriverManager.chromedriver().setup();
 	            driver = new ChromeDriver(options);
