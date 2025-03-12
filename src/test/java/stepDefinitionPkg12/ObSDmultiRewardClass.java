@@ -59,11 +59,7 @@ public class ObSDmultiRewardClass {
 		assert HomeAdminPanel.isMySummaryDisplayed();
 		System.out.println("This is " + driver.getTitle());
 		
-		Assert.assertTrue(driver.getTitle().contains("123456"));
-		
-		
- 	
-		
+		Assert.assertTrue(driver.getTitle().contains("123456"));	
 	}
 
 
@@ -135,7 +131,7 @@ public class ObSDmultiRewardClass {
 		multiReward.clickWorkflowDropdown();
 		multiReward.clickPolicyDropdown();
 		multiReward.clickReviewButton();
-		//Thread.sleep(1000);
+		
 	}
 
 	@Then("user navigates to grid page")
