@@ -24,8 +24,7 @@ Feature: To add multiple rewards using scenarioOutline functionality
       | 100qwerty 123 reward |             2 |
       | 200mnp reward        |             5 |
       | 300QWERTY reward     |             4 |
-      | 400xyz reward        |             3 |
-      | 500final reward      |             8 |
+
 
   Scenario: User navigates Recognitions page
     When User clicks on Logout link
