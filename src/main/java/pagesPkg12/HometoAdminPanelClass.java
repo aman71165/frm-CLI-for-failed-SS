@@ -30,7 +30,7 @@ public class HometoAdminPanelClass {
 
 	public HometoAdminPanelClass(WebDriver driver) {
 		this.driver = driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(40)); 
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(30)); 
 	}
 
 	
@@ -47,7 +47,6 @@ public class HometoAdminPanelClass {
 
 		js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", eleAdminPanelLink);
-
 	}
 
 	

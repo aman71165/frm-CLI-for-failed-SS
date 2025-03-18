@@ -66,12 +66,13 @@ public class MultipleRewardClass {
 	private By cancelButton = By.xpath("//button[@type='button' and contains(text(), 'Cancel')]");
 	private By cancelOKButton = By.xpath("//button[contains(text(), 'OK')]");
 	
-
-
+	
+	private By yearChange= By.xpath("//a[@class='k-link k-nav-fast']");
+	private By monthChange= By.xpath("//a[@class='k-link' and contains(text(), 'Dec')]");
 
 	public MultipleRewardClass(WebDriver driver) {
 		this.driver= driver;
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(40));  
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));  
 		this.action= new Actions(driver);
 	}
 
@@ -114,20 +115,58 @@ public class MultipleRewardClass {
 
 
 	public void clickStartDatePicker(){
+
+		
 		driver.findElement(startDatePicker).click();
+	//	<td role="gridcell">
+		
+		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@role='gridcell']"))); 
+		
+		/*
+		 * driver.findElement(By.xpath("//a[@class='k-link k-nav-fast']")).click();
+		 * 
+		 * driver.findElement(By.
+		 * xpath("//a[@class='k-link' and contains(text(), 'Dec')]")).click();
+		 * 
+		 * WebElement eleStartDate=
+		 * driver.findElement(By.xpath("//a[@title='Friday, January 09, 2026']"));
+		 * js.executeScript("arguments[0].click();", eleStartDate);
+		 */
+		
+		
+		
+		WebElement eleYear= driver.findElement(yearChange);
+		wait.until(ExpectedConditions.presenceOfElementLocated(yearChange));
+		js.executeScript("arguments[0].click();", eleYear);
+		
+	
+		WebElement eleMonth= driver.findElement(monthChange);
+		wait.until(ExpectedConditions.presenceOfElementLocated(monthChange));
+		js.executeScript("arguments[0].click();", eleMonth);
 
-		WebElement eleStartDate= driver.findElement(By.xpath("//a[@title='Friday, April 04, 2025']"));
 
+		WebElement eleStartDate= driver.findElement(By.xpath("//a[@title='Friday, January 09, 2026']"));
 		js.executeScript("arguments[0].click();", eleStartDate);
+		
 	}
 
 
+	
 	public void clickEndDatePicker(){
+		
 		driver.findElement(endDatePicker).click();
+	
+		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@role='gridcell']"))); 
+		
+		WebElement eleYear= driver.findElement(yearChange);
+		wait.until(ExpectedConditions.presenceOfElementLocated(yearChange));
+		js.executeScript("arguments[0].click();", eleYear);
+		
+		driver.findElement(By.xpath("//a[@class='k-link' and contains(text(), 'Dec')]")).click();
 
-		WebElement eleEndDate= driver.findElement(By.xpath("//a[@title='Saturday, April 05, 2025']"));
-
+		WebElement eleEndDate= driver.findElement(By.xpath("//a[@title='Saturday, January 10, 2026']"));
 		js.executeScript("arguments[0].click();", eleEndDate);
+	
 	}
 
 
