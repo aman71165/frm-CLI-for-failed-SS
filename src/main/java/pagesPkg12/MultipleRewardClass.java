@@ -14,13 +14,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MultipleRewardClass {
-	
+
 	WebDriver driver;
 	WebDriverWait wait;
 	JavascriptExecutor js;
 	Actions action;
 
-	
+
 	private By newRecognitionButton = By.xpath("//span[contains(text(), 'New Recognition')]");  
 
 	private By rewardsTile = By.xpath("//p[contains(text(),'Reward is a monetary type of recognition. Give Rew')]");
@@ -58,15 +58,15 @@ public class MultipleRewardClass {
 	private By reviewButton = By.xpath("//button[contains(text(), 'Review')]");
 
 	private By finishButton = By.xpath("//button[contains(text(), 'Finish')]");
-	
+
 	private By logOutlink = By.xpath("//a[@title='Logout']");
-	
+
 	private By adminPanelYesButton = By.xpath("//button[contains(text(), 'Yes')]");
-	
+
 	private By cancelButton = By.xpath("//button[@type='button' and contains(text(), 'Cancel')]");
 	private By cancelOKButton = By.xpath("//button[contains(text(), 'OK')]");
-	
-	
+
+
 	private By yearChange= By.xpath("//a[@class='k-link k-nav-fast']");
 	private By monthChange= By.xpath("//a[@class='k-link' and contains(text(), 'Dec')]");
 
@@ -76,11 +76,11 @@ public class MultipleRewardClass {
 		this.action= new Actions(driver);
 	}
 
-	
+
 	public void clickNewRecognitionButton(){
-	
+
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-bar-spinner")));
-		
+
 		wait.until(ExpectedConditions.presenceOfElementLocated(newRecognitionButton));
 		driver.findElement(newRecognitionButton).click();
 	}
@@ -93,7 +93,7 @@ public class MultipleRewardClass {
 
 
 	public void clickRewardnameField_parameterized(String rewardName){
-			wait.until(ExpectedConditions.presenceOfElementLocated(rewardnameField));
+		wait.until(ExpectedConditions.presenceOfElementLocated(rewardnameField));
 		driver.findElement(rewardnameField).sendKeys(rewardName);
 	}
 
@@ -107,7 +107,6 @@ public class MultipleRewardClass {
 		Select individual = new Select(eleIndividualOption);
 		individual.selectByVisibleText("Individual");
 
-
 		js= (JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,document.body.scrollHeight);");
 	}
@@ -116,30 +115,13 @@ public class MultipleRewardClass {
 
 	public void clickStartDatePicker(){
 
-		
 		driver.findElement(startDatePicker).click();
-	//	<td role="gridcell">
-		
-		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@role='gridcell']"))); 
-		
-		/*
-		 * driver.findElement(By.xpath("//a[@class='k-link k-nav-fast']")).click();
-		 * 
-		 * driver.findElement(By.
-		 * xpath("//a[@class='k-link' and contains(text(), 'Dec')]")).click();
-		 * 
-		 * WebElement eleStartDate=
-		 * driver.findElement(By.xpath("//a[@title='Friday, January 09, 2026']"));
-		 * js.executeScript("arguments[0].click();", eleStartDate);
-		 */
-		
-		
-		
+
 		WebElement eleYear= driver.findElement(yearChange);
 		wait.until(ExpectedConditions.presenceOfElementLocated(yearChange));
 		js.executeScript("arguments[0].click();", eleYear);
-		
-	
+
+
 		WebElement eleMonth= driver.findElement(monthChange);
 		wait.until(ExpectedConditions.presenceOfElementLocated(monthChange));
 		js.executeScript("arguments[0].click();", eleMonth);
@@ -147,26 +129,24 @@ public class MultipleRewardClass {
 
 		WebElement eleStartDate= driver.findElement(By.xpath("//a[@title='Friday, January 09, 2026']"));
 		js.executeScript("arguments[0].click();", eleStartDate);
-		
+
 	}
 
 
-	
+
 	public void clickEndDatePicker(){
-		
+
 		driver.findElement(endDatePicker).click();
-	
-		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@role='gridcell']"))); 
-		
+
 		WebElement eleYear= driver.findElement(yearChange);
 		wait.until(ExpectedConditions.presenceOfElementLocated(yearChange));
 		js.executeScript("arguments[0].click();", eleYear);
-		
+
 		driver.findElement(By.xpath("//a[@class='k-link' and contains(text(), 'Dec')]")).click();
 
 		WebElement eleEndDate= driver.findElement(By.xpath("//a[@title='Saturday, January 10, 2026']"));
 		js.executeScript("arguments[0].click();", eleEndDate);
-	
+
 	}
 
 
@@ -175,7 +155,7 @@ public class MultipleRewardClass {
 
 		WebElement eleOption= wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[contains(text(), 'Email-Id: marww@yopmail.com')]")));
 		js.executeScript("arguments[0].click();", eleOption);
-		
+
 	}
 
 	public void clickRewardPointsField_paramerized(String rewardPoints){
@@ -237,7 +217,7 @@ public class MultipleRewardClass {
 
 	public void clickCancelButton(){
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-bar-spinner")));
-		
+
 		driver.findElement(cancelButton).click();
 	}
 
@@ -246,24 +226,24 @@ public class MultipleRewardClass {
 		driver.findElement(cancelOKButton).click();
 	}
 
-	
+
 	public void clickLogoutLink(){
-	
+
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading-bar-spinner")));
-	
-			driver.findElement(logOutlink).click();
+
+		driver.findElement(logOutlink).click();
 	}
 
-	
+
 	public void clickAdminPanelYesButton(){
 		driver.findElement(adminPanelYesButton).click();
-}
+	}
 
-	
+
 	public void clickPopupAlert(){
-	   Alert alert = driver.switchTo().alert();
-	   alert.accept();
-}
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
 
 	public void moveToFrontEnd() throws InterruptedException {
 
